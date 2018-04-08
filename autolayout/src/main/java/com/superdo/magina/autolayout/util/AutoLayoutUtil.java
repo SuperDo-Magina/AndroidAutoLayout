@@ -38,10 +38,10 @@ public class AutoLayoutUtil {
         if (pl > 0 || pt > 0 || pr > 0 || pb > 0 ||
                 ple > 0 || pte > 0 || pre > 0 || pbe > 0) {
 
-            v.setPadding((int) (pl * AutoLayout.getUnitSize() + ple * AutoLayout.getWidthExtra()),
-                    (int) (pt * AutoLayout.getUnitSize() + pte * AutoLayout.getHeightExtra()),
-                    (int) (pr * AutoLayout.getUnitSize() + pre * AutoLayout.getWidthExtra()),
-                    (int) (pb * AutoLayout.getUnitSize() + pbe * AutoLayout.getHeightExtra()));
+            v.setPadding((int) (pl * AutoLayout.getUnitSize() + ple * getWidthExtra()),
+                    (int) (pt * AutoLayout.getUnitSize() + pte * getHeightExtra()),
+                    (int) (pr * AutoLayout.getUnitSize() + pre * getWidthExtra()),
+                    (int) (pb * AutoLayout.getUnitSize() + pbe * getHeightExtra()));
         }
         a.recycle();
     }
@@ -55,9 +55,9 @@ public class AutoLayoutUtil {
         int he = a.getInt(R.styleable.AutoView_auto_height_extra, 0);
 
         if (w > 0 || we > 0)
-            params.width = (int) (w * AutoLayout.getUnitSize() + we * AutoLayout.getWidthExtra());
+            params.width = (int) (w * AutoLayout.getUnitSize() + we * getWidthExtra());
         if (h > 0 || he > 0)
-            params.height = (int) (h * AutoLayout.getUnitSize() + he * AutoLayout.getHeightExtra());
+            params.height = (int) (h * AutoLayout.getUnitSize() + he * getHeightExtra());
 
         int ml = a.getInt(R.styleable.AutoView_auto_margin_left, 0);
         int mt = a.getInt(R.styleable.AutoView_auto_margin_top, 0);
@@ -73,30 +73,39 @@ public class AutoLayoutUtil {
 
             if (params instanceof RelativeLayout.LayoutParams) {
 
-                ((RelativeLayout.LayoutParams) params).setMargins((int) (ml * AutoLayout.getUnitSize() + mle * AutoLayout.getWidthExtra()),
-                        (int) (mt * AutoLayout.getUnitSize() + mte * AutoLayout.getHeightExtra()),
-                        (int) (mr * AutoLayout.getUnitSize() + mre * AutoLayout.getWidthExtra()),
-                        (int) (mb * AutoLayout.getUnitSize() + mbe * AutoLayout.getHeightExtra()));
+                ((RelativeLayout.LayoutParams) params).setMargins((int) (ml * AutoLayout.getUnitSize() + mle * getWidthExtra()),
+                        (int) (mt * AutoLayout.getUnitSize() + mte * getHeightExtra()),
+                        (int) (mr * AutoLayout.getUnitSize() + mre * getWidthExtra()),
+                        (int) (mb * AutoLayout.getUnitSize() + mbe * getHeightExtra()));
 
             } else if (params instanceof LinearLayout.LayoutParams) {
 
-                ((LinearLayout.LayoutParams) params).setMargins((int) (ml * AutoLayout.getUnitSize() + mle * AutoLayout.getWidthExtra()),
-                        (int) (mt * AutoLayout.getUnitSize() + mte * AutoLayout.getHeightExtra()),
-                        (int) (mr * AutoLayout.getUnitSize() + mre * AutoLayout.getWidthExtra()),
-                        (int) (mb * AutoLayout.getUnitSize() + mbe * AutoLayout.getHeightExtra()));
+                ((LinearLayout.LayoutParams) params).setMargins((int) (ml * AutoLayout.getUnitSize() + mle * getWidthExtra()),
+                        (int) (mt * AutoLayout.getUnitSize() + mte * getHeightExtra()),
+                        (int) (mr * AutoLayout.getUnitSize() + mre * getWidthExtra()),
+                        (int) (mb * AutoLayout.getUnitSize() + mbe * getHeightExtra()));
 
             } else if (params instanceof FrameLayout.LayoutParams) {
 
-                ((FrameLayout.LayoutParams) params).setMargins((int) (ml * AutoLayout.getUnitSize() + mle * AutoLayout.getWidthExtra()),
-                        (int) (mt * AutoLayout.getUnitSize() + mte * AutoLayout.getHeightExtra()),
-                        (int) (mr * AutoLayout.getUnitSize() + mre * AutoLayout.getWidthExtra()),
-                        (int) (mb * AutoLayout.getUnitSize() + mbe * AutoLayout.getHeightExtra()));
+                ((FrameLayout.LayoutParams) params).setMargins((int) (ml * AutoLayout.getUnitSize() + mle * getWidthExtra()),
+                        (int) (mt * AutoLayout.getUnitSize() + mte * getHeightExtra()),
+                        (int) (mr * AutoLayout.getUnitSize() + mre * getWidthExtra()),
+                        (int) (mb * AutoLayout.getUnitSize() + mbe * getHeightExtra()));
             }
-
-
         }
 
         a.recycle();
+    }
 
+    private static int getHeightExtra() {
+
+        return AutoLayout.getScreenOrientation() == AutoLayout.ScreenOrientation.PORTRAIT ?
+                AutoLayout.getHeightExtra() : AutoLayout.getWidthExtra();
+    }
+
+    private static int getWidthExtra() {
+
+        return AutoLayout.getScreenOrientation() == AutoLayout.ScreenOrientation.PORTRAIT ?
+                AutoLayout.getWidthExtra() : AutoLayout.getHeightExtra();
     }
 }

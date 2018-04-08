@@ -33,9 +33,11 @@ public class AutoLayout {
     private static int unitHeight, unitWidth; // 基础宽高所占单位数
     private static int unitHeightExtra, unitWidthExtra; // 额外宽高所占单位数
     private static int unitHeightTotal, unitWidthTotal; // 总宽高所占单位数
-    private static int mHeight, mWidth; // 手机屏幕宽高
+    private static int height, width; // 手机屏幕宽高
     private static int heightExtra, widthExtra; // 额外的宽高像素
     private static float unitSize; // 一个单位所占像素
+
+    private static ScreenOrientation screenOrientation = ScreenOrientation.PORTRAIT;
 
     public static void init(Context context, int width, int height) {
         mContext = context;
@@ -51,33 +53,33 @@ public class AutoLayout {
             DisplayMetrics metric = new DisplayMetrics();
             ((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRealMetrics(metric);
 
-            mHeight = metric.heightPixels;
-            mWidth = metric.widthPixels;
+            height = metric.heightPixels;
+            width = metric.widthPixels;
         } else {
             Point p = new Point();
             ((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getSize(p);
 
-            mHeight = p.y;
-            mWidth = p.x;
+            height = p.y;
+            width = p.x;
         }
 
-        if (mHeight < mWidth) {
-            int temp = mHeight;
-            mHeight = mWidth;
-            mWidth = temp;
+        if (height < width) {
+            int temp = height;
+            height = width;
+            width = temp;
         }
     }
 
     private static void countUnits() {
-        unitSize = Math.min(mHeight * 1f / unitHeight, mWidth * 1f / unitWidth);
+        unitSize = Math.min(height * 1f / unitHeight, width * 1f / unitWidth);
 //        textPxUnit = unitSize * 3;
         int standardWidth = (int) ((unitSize * unitWidth) + .5f);
         int standardHeight = (int) ((unitSize * unitHeight) + .5f);
-        heightExtra = (mHeight - standardHeight);
-        widthExtra = (mWidth - standardWidth);
+        heightExtra = (height - standardHeight);
+        widthExtra = (width - standardWidth);
 
-        unitHeightTotal = (int) (mHeight / unitSize + .5f);
-        unitWidthTotal = (int) (mWidth / unitSize + .5f);
+        unitHeightTotal = (int) (height / unitSize + .5f);
+        unitWidthTotal = (int) (width / unitSize + .5f);
 
         unitHeightExtra = unitHeightTotal - unitHeight;
         unitWidthExtra = unitWidthTotal - unitWidth;
@@ -111,12 +113,12 @@ public class AutoLayout {
         return unitWidthTotal;
     }
 
-    public static int getmHeight() {
-        return mHeight;
+    public static int getHeight() {
+        return height;
     }
 
-    public static int getmWidth() {
-        return mWidth;
+    public static int getWidth() {
+        return width;
     }
 
     public static int getHeightExtra() {
@@ -129,5 +131,17 @@ public class AutoLayout {
 
     public static float getUnitSize() {
         return unitSize;
+    }
+
+    public static ScreenOrientation getScreenOrientation() {
+        return screenOrientation;
+    }
+
+    public static void setScreenOrientation(ScreenOrientation screenOrientation) {
+        AutoLayout.screenOrientation = screenOrientation;
+    }
+
+    public enum ScreenOrientation {
+        PORTRAIT, LANDSCAPE
     }
 }
