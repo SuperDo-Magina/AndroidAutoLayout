@@ -44,6 +44,8 @@
     <View
         app:auto_width="540"
         app:auto_height="960"
+        app:auto_width_height_ratio="2"
+        app:auto_ratio_refer_to="refer_to_width"
         android:id="@+id/v3"
         android:layout_below="@id/v1"
         android:layout_width="match_parent"

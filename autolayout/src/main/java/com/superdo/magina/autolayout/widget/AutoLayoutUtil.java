@@ -1,4 +1,4 @@
-package com.superdo.magina.autolayout.util;
+package com.superdo.magina.autolayout.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -22,9 +22,12 @@ import com.superdo.magina.autolayout.R;
  * </pre>
  */
 
-public class AutoLayoutUtil {
+class AutoLayoutUtil {
 
-    public static void setLayoutAttrs(View v, Context context, AttributeSet attrs) {
+    private final static int REFER_TO_WIDTH = 1;
+    private final static int REFER_TO_HEIGHT = 2;
+
+    static void setLayoutAttrs(View v, Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoView);
         int pl = a.getInt(R.styleable.AutoView_auto_padding_left, 0);
         int pt = a.getInt(R.styleable.AutoView_auto_padding_top, 0);
@@ -46,18 +49,48 @@ public class AutoLayoutUtil {
         a.recycle();
     }
 
-    public static void setLayoutParams(ViewGroup.LayoutParams params, Context context, AttributeSet attrs) {
+    static void setLayoutParams(ViewGroup.LayoutParams params, Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoView);
 
         int w = a.getInt(R.styleable.AutoView_auto_width, 0);
         int h = a.getInt(R.styleable.AutoView_auto_height, 0);
-        int we = a.getInt(R.styleable.AutoView_auto_width_extra, 0);
-        int he = a.getInt(R.styleable.AutoView_auto_height_extra, 0);
+        float we = a.getFloat(R.styleable.AutoView_auto_width_extra, 0);
+        float he = a.getFloat(R.styleable.AutoView_auto_height_extra, 0);
 
-        if (w > 0 || we > 0)
-            params.width = (int) (w * AutoLayout.getUnitSize() + we * getWidthExtra());
-        if (h > 0 || he > 0)
-            params.height = (int) (h * AutoLayout.getUnitSize() + he * getHeightExtra());
+        int width = 0, height = 0;
+
+        float ratio = a.getFloat(R.styleable.AutoView_auto_width_height_ratio, 0);
+        if (ratio > 0) { // 有设置宽高比
+
+            int ratioRefer = a.getInt(R.styleable.AutoView_auto_ratio_refer_to, 1);
+//            int ratioRefer = 2;
+            if (ratioRefer == REFER_TO_WIDTH) { // 基于宽
+
+                width = (int) (w * AutoLayout.getUnitSize() + we * getWidthExtra());
+                height = (int) (width / ratio);
+
+            } else { // 基于高
+                height = (int) (h * AutoLayout.getUnitSize() + he * getHeightExtra());
+                width = (int) (height * ratio);
+            }
+
+        } else { // 未设置宽高比
+            if (w > 0 || we > 0) {
+                width = (int) (w * AutoLayout.getUnitSize() + we * getWidthExtra());
+            }
+
+            if (h > 0 || he > 0) {
+                height = (int) (h * AutoLayout.getUnitSize() + he * getHeightExtra());
+            }
+        }
+
+        if (width > 0) {
+            params.width = width;
+        }
+
+        if (height > 0) {
+            params.height = height;
+        }
 
         int ml = a.getInt(R.styleable.AutoView_auto_margin_left, 0);
         int mt = a.getInt(R.styleable.AutoView_auto_margin_top, 0);
@@ -71,26 +104,34 @@ public class AutoLayoutUtil {
         if (ml > 0 || mt > 0 || mr > 0 || mb > 0 ||
                 mle > 0 || mte > 0 || mre > 0 || mbe > 0) {
 
+            int marginLeft = (int) (ml * AutoLayout.getUnitSize() + mle * getWidthExtra());
+            int marginTop = (int) (mt * AutoLayout.getUnitSize() + mte * getHeightExtra());
+            int marginRight = (int) (mr * AutoLayout.getUnitSize() + mre * getWidthExtra());
+            int marginBottom = (int) (mb * AutoLayout.getUnitSize() + mbe * getHeightExtra());
+
             if (params instanceof RelativeLayout.LayoutParams) {
 
-                ((RelativeLayout.LayoutParams) params).setMargins((int) (ml * AutoLayout.getUnitSize() + mle * getWidthExtra()),
-                        (int) (mt * AutoLayout.getUnitSize() + mte * getHeightExtra()),
-                        (int) (mr * AutoLayout.getUnitSize() + mre * getWidthExtra()),
-                        (int) (mb * AutoLayout.getUnitSize() + mbe * getHeightExtra()));
+                ((RelativeLayout.LayoutParams) params).setMargins(
+                        marginLeft,
+                        marginTop,
+                        marginRight,
+                        marginBottom);
 
             } else if (params instanceof LinearLayout.LayoutParams) {
 
-                ((LinearLayout.LayoutParams) params).setMargins((int) (ml * AutoLayout.getUnitSize() + mle * getWidthExtra()),
-                        (int) (mt * AutoLayout.getUnitSize() + mte * getHeightExtra()),
-                        (int) (mr * AutoLayout.getUnitSize() + mre * getWidthExtra()),
-                        (int) (mb * AutoLayout.getUnitSize() + mbe * getHeightExtra()));
+                ((LinearLayout.LayoutParams) params).setMargins(
+                        marginLeft,
+                        marginTop,
+                        marginRight,
+                        marginBottom);
 
             } else if (params instanceof FrameLayout.LayoutParams) {
 
-                ((FrameLayout.LayoutParams) params).setMargins((int) (ml * AutoLayout.getUnitSize() + mle * getWidthExtra()),
-                        (int) (mt * AutoLayout.getUnitSize() + mte * getHeightExtra()),
-                        (int) (mr * AutoLayout.getUnitSize() + mre * getWidthExtra()),
-                        (int) (mb * AutoLayout.getUnitSize() + mbe * getHeightExtra()));
+                ((FrameLayout.LayoutParams) params).setMargins(
+                        marginLeft,
+                        marginTop,
+                        marginRight,
+                        marginBottom);
             }
         }
 

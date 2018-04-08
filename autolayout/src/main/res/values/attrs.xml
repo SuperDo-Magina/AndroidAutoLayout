@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="AutoView">
-        <attr name="auto_width" format="integer" />
-        <attr name="auto_height" format="integer" />
-        <attr name="auto_width_extra" format="float" />
-        <attr name="auto_height_extra" format="float" />
-        <attr name="auto_margin_left" format="integer" />
-        <attr name="auto_margin_top" format="integer" />
-        <attr name="auto_margin_right" format="integer" />
-        <attr name="auto_margin_bottom" format="integer" />
-        <attr name="auto_margin_left_extra" format="float" />
-        <attr name="auto_margin_top_extra" format="float" />
-        <attr name="auto_margin_right_extra" format="float" />
-        <attr name="auto_margin_bottom_extra" format="float" />
-        <attr name="auto_padding_left" format="integer" />
-        <attr name="auto_padding_top" format="integer" />
-        <attr name="auto_padding_right" format="integer" />
-        <attr name="auto_padding_bottom" format="integer" />
-        <attr name="auto_padding_left_extra" format="float" />
-        <attr name="auto_padding_top_extra" format="float" />
-        <attr name="auto_padding_right_extra" format="float" />
-        <attr name="auto_padding_bottom_extra" format="float" />
+        <!--子布局属性-->
+        <attr name="auto_width" format="integer"/>
+        <attr name="auto_height" format="integer"/>
+        <attr name="auto_width_extra" format="float"/>
+        <attr name="auto_height_extra" format="float"/>
+        <attr name="auto_margin_left" format="integer"/>
+        <attr name="auto_margin_top" format="integer"/>
+        <attr name="auto_margin_right" format="integer"/>
+        <attr name="auto_margin_bottom" format="integer"/>
+        <attr name="auto_margin_left_extra" format="float"/>
+        <attr name="auto_margin_top_extra" format="float"/>
+        <attr name="auto_margin_right_extra" format="float"/>
+        <attr name="auto_margin_bottom_extra" format="float"/>
+
+        <attr name="auto_width_height_ratio" format="float"/>
+        <attr name="auto_ratio_refer_to">
+            <enum name="refer_to_width" value="1"/>
+            <enum name="refer_to_height" value="2"/>
+        </attr>
+        <!--父布局属性-->
+        <attr name="auto_padding_left" format="integer"/>
+        <attr name="auto_padding_top" format="integer"/>
+        <attr name="auto_padding_right" format="integer"/>
+        <attr name="auto_padding_bottom" format="integer"/>
+        <attr name="auto_padding_left_extra" format="float"/>
+        <attr name="auto_padding_top_extra" format="float"/>
+        <attr name="auto_padding_right_extra" format="float"/>
+        <attr name="auto_padding_bottom_extra" format="float"/>
     </declare-styleable>
 </resources>

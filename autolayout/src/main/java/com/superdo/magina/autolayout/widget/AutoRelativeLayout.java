@@ -6,8 +6,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
-import com.superdo.magina.autolayout.util.AutoLayoutUtil;
-
 /**
  * <pre>
  *
