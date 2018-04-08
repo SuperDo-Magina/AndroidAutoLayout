@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.superdo.magina.autolayout.widget.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.superdo.magina.autolayout.widget.AutoFrameLayout
+        app:auto_width="540"
+        app:auto_height="960"
+        app:auto_height_extra="1"
+        app:auto_width_extra="1"
+        app:auto_padding_left="50"
+        app:auto_padding_top="50"
+        android:id="@+id/v1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F00">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#0FF"/>
+    </com.superdo.magina.autolayout.widget.AutoFrameLayout>
+
+    <!--<View-->
+        <!--app:auto_width="540"-->
+        <!--app:auto_height="960"-->
+        <!--app:auto_height_extra="1"-->
+        <!--app:auto_width_extra="1"-->
+        <!--android:id="@+id/v1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="#0FF"/>-->
+
+    <View
+        app:auto_width="540"
+        app:auto_height="960"
+        android:id="@+id/v2"
+        android:layout_toRightOf="@id/v1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF0"/>
+    <View
+        app:auto_width="540"
+        app:auto_height="960"
+        android:id="@+id/v3"
+        android:layout_below="@id/v1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0f"/>
+
+</com.superdo.magina.autolayout.widget.AutoRelativeLayout>
