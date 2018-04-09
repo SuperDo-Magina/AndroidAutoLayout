@@ -39,7 +39,7 @@ public class AutoLinearLayout extends LinearLayout {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        AutoLayoutUtil.setLayoutAttrs(this, context, attrs);
+        AutoLayoutHelper.setLayoutAttrs(this, context, attrs);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class AutoLinearLayout extends LinearLayout {
         private AutoLayoutParams(Context context, AttributeSet attrs) {
             super(context, attrs);
 
-            AutoLayoutUtil.setLayoutParams(this, context, attrs);
+            AutoLayoutHelper.setLayoutParams(this, context, attrs);
         }
     }
 }

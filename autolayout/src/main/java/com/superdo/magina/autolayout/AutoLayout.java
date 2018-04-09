@@ -72,7 +72,6 @@ public class AutoLayout {
 
     private static void countUnits() {
         unitSize = Math.min(height * 1f / unitHeight, width * 1f / unitWidth);
-//        textPxUnit = unitSize * 3;
         int standardWidth = (int) ((unitSize * unitWidth) + .5f);
         int standardHeight = (int) ((unitSize * unitHeight) + .5f);
         heightExtra = (height - standardHeight);

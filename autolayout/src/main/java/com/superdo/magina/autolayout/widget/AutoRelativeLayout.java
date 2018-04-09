@@ -39,7 +39,7 @@ public class AutoRelativeLayout extends RelativeLayout {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        AutoLayoutUtil.setLayoutAttrs(this, context, attrs);
+        AutoLayoutHelper.setLayoutAttrs(this, context, attrs);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class AutoRelativeLayout extends RelativeLayout {
         private AutoLayoutParams(Context context, AttributeSet attrs) {
             super(context, attrs);
 
-            AutoLayoutUtil.setLayoutParams(this, context, attrs);
+            AutoLayoutHelper.setLayoutParams(this, context, attrs);
         }
     }
 }

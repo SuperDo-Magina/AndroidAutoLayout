@@ -22,7 +22,7 @@ import com.superdo.magina.autolayout.R;
  * </pre>
  */
 
-class AutoLayoutUtil {
+class AutoLayoutHelper {
 
     private final static int REFER_TO_WIDTH = 1;
     private final static int REFER_TO_HEIGHT = 2;
