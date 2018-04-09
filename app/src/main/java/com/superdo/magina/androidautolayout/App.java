@@ -22,5 +22,6 @@ public class App extends Application {
         super.onCreate();
 
         AutoLayout.init(this, 1080, 1920);
+        AutoLayout.setScreenOrientation(AutoLayout.ScreenOrientation.LANDSCAPE);
     }
 }

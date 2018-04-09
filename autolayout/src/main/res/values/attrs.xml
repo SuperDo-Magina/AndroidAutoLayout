@@ -30,4 +30,8 @@
         <attr name="auto_padding_right_extra" format="float"/>
         <attr name="auto_padding_bottom_extra" format="float"/>
     </declare-styleable>
+
+    <declare-styleable name="AutoTextView">
+        <attr name="auto_text_size" format="integer"/>
+    </declare-styleable>
 </resources>
