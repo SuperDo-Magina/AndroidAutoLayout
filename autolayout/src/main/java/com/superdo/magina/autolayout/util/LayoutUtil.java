@@ -178,11 +178,17 @@ public class LayoutUtil {
         v.setLayoutParams(params);
     }
 
-    public static float getUnitSize(int i) {
-        return i * AutoLayout.getUnitSize();
+    /**
+     * 获取n个单元大小
+     */
+    public static float getUnitSize(int n) {
+        return n * AutoLayout.getUnitSize();
     }
 
-    public static float getUnitSize(float i) {
-        return i * AutoLayout.getUnitSize();
+    /**
+     * 获取n个单元大小
+     */
+    public static float getUnitSize(float n) {
+        return n * AutoLayout.getUnitSize();
     }
 }
