@@ -30,19 +30,25 @@ public class AutoLayout {
     @SuppressLint("StaticFieldLeak")
     private static Context mContext;
 
-    private static int unitHeight, unitWidth; // 基础宽高所占单位数
+    private static int baseHeight, baseWidth; // 基础宽高所占单位数
     private static int unitHeightExtra, unitWidthExtra; // 额外宽高所占单位数
-    private static int unitHeightTotal, unitWidthTotal; // 总宽高所占单位数
+    private static int unitHeight, unitWidth; // 总宽高所占单位数
     private static int height, width; // 手机屏幕宽高
     private static int heightExtra, widthExtra; // 额外的宽高像素
     private static float unitSize; // 一个单位所占像素
 
     private static ScreenOrientation screenOrientation = ScreenOrientation.PORTRAIT;
 
+    /**
+     * 初始化
+     * @param context 上下文环境
+     * @param width 宽
+     * @param height 高
+     */
     public static void init(Context context, int width, int height) {
         mContext = context;
-        unitHeight = height;
-        unitWidth = width;
+        baseHeight = height;
+        baseWidth = width;
 
         countHighWidth();
         countUnits();
@@ -71,71 +77,113 @@ public class AutoLayout {
     }
 
     private static void countUnits() {
-        unitSize = Math.min(height * 1f / unitHeight, width * 1f / unitWidth);
-        int standardWidth = (int) ((unitSize * unitWidth) + .5f);
-        int standardHeight = (int) ((unitSize * unitHeight) + .5f);
+        unitSize = Math.min(height * 1f / baseHeight, width * 1f / baseWidth);
+        int standardWidth = (int) ((unitSize * baseWidth) + .5f);
+        int standardHeight = (int) ((unitSize * baseHeight) + .5f);
         heightExtra = (height - standardHeight);
         widthExtra = (width - standardWidth);
 
-        unitHeightTotal = (int) (height / unitSize + .5f);
-        unitWidthTotal = (int) (width / unitSize + .5f);
+        unitHeight = (int) (height / unitSize + .5f);
+        unitWidth = (int) (width / unitSize + .5f);
 
-        unitHeightExtra = unitHeightTotal - unitHeight;
-        unitWidthExtra = unitWidthTotal - unitWidth;
+        unitHeightExtra = unitHeight - baseHeight;
+        unitWidthExtra = unitWidth - baseWidth;
     }
 
+    /**
+     * 获取上下文环境
+     */
     public static Context getContext() {
         return mContext;
     }
 
-    public static int getUnitHeight() {
-        return unitHeight;
+    /**
+     * 获取基准高度
+     */
+    public static int getBaseHeight() {
+        return baseHeight;
     }
 
-    public static int getUnitWidth() {
-        return unitWidth;
+    /**
+     * 获取基准宽度
+     */
+    public static int getBaseWidth() {
+        return baseWidth;
     }
 
+    /**
+     * 获取额外高度所占单元
+     */
     public static int getUnitHeightExtra() {
         return unitHeightExtra;
     }
 
+    /**
+     * 获取额外宽度所占单元
+     */
     public static int getUnitWidthExtra() {
         return unitWidthExtra;
     }
 
-    public static int getUnitHeightTotal() {
-        return unitHeightTotal;
+    /**
+     * 获取设备高度所占单元
+     */
+    public static int getUnitHeight() {
+        return unitHeight;
     }
 
-    public static int getUnitWidthTotal() {
-        return unitWidthTotal;
+    /**
+     * 获取设备宽度所占单元
+     */
+    public static int getUnitWidth() {
+        return unitWidth;
     }
 
+    /**
+     * 获取设备高度值
+     */
     public static int getHeight() {
         return height;
     }
 
+    /**
+     * 获取设备宽度值
+     */
     public static int getWidth() {
         return width;
     }
 
+    /**
+     * 获取额外高度值
+     */
     public static int getHeightExtra() {
         return heightExtra;
     }
 
+    /**
+     * 获取额外宽度值
+     */
     public static int getWidthExtra() {
         return widthExtra;
     }
 
+    /**
+     * 获取一个单元大小
+     */
     public static float getUnitSize() {
         return unitSize;
     }
 
+    /**
+     * 获取屏幕方向(水平/竖直)
+     */
     public static ScreenOrientation getScreenOrientation() {
         return screenOrientation;
     }
 
+    /**
+     * 设置屏幕方向
+     */
     public static void setScreenOrientation(ScreenOrientation screenOrientation) {
         AutoLayout.screenOrientation = screenOrientation;
     }
