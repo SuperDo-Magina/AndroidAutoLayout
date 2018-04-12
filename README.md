@@ -69,9 +69,10 @@ AutoLayout.setScreenOrientation(AutoLayout.ScreenOrientation.LANDSCAPE／AutoLay
 
 #  三、已知问题
 
-1.在使用xml布局时无法预览
+1.在使用xml布局时无法预览  
 2.在使用xml布局时无法智能提示能够使用的属性（declare-styleable 的命名无法与自定义控件统一）
 
 #  四、联系方式
-624996437@qq.com
+
+624996437@qq.com  
 在使用上遇到任何问题或者有什么好的建议都可以通过上诉邮箱与我联系
