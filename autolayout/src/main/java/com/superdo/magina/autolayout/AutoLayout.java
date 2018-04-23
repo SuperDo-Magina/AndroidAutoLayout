@@ -41,9 +41,10 @@ public class AutoLayout {
 
     /**
      * 初始化
+     *
      * @param context 上下文环境
-     * @param width 宽
-     * @param height 高
+     * @param width   宽
+     * @param height  高
      */
     public static void init(Context context, int width, int height) {
         mContext = context;
@@ -179,6 +180,14 @@ public class AutoLayout {
      */
     public static ScreenOrientation getScreenOrientation() {
         return screenOrientation;
+    }
+
+    public static boolean isPortrait() {
+        return screenOrientation == ScreenOrientation.PORTRAIT;
+    }
+
+    public static float getWidthHeightRatio() {
+        return isPortrait() ? width * 1f / height : height * 1f / width;
     }
 
     /**

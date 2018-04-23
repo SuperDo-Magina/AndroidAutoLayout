@@ -20,6 +20,13 @@
             <enum name="refer_to_width" value="1"/>
             <enum name="refer_to_height" value="2"/>
         </attr>
+
+        <attr name="auto_full_screen" format="boolean"/>
+        <attr name="auto_gravity" >
+            <enum name="gravity_default" value="1"/>
+            <enum name="gravity_center" value="2"/>
+        </attr>
+
         <!--父布局属性-->
         <attr name="auto_padding_left" format="integer"/>
         <attr name="auto_padding_top" format="integer"/>
