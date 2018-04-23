@@ -3,7 +3,6 @@ package com.superdo.magina.autolayout.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -98,11 +97,11 @@ class AutoLayoutHelper {
                     if (gravity == GRAVITY_CENTER) {
 
                         int margin = (getHeight() - height) / 2;
-                        Log.e("Test", "margin:" + margin);
                         setMargins(params, 0, margin, 0, margin);
                     }
 
                 }
+
             }
 
             params.width = width;
@@ -125,8 +124,10 @@ class AutoLayoutHelper {
                     height = float2Int(width / ratio);
 
                 } else { // 基于高
+
                     height = float2Int(h * AutoLayout.getUnitSize() + he * getHeightExtra());
                     width = float2Int(height * ratio);
+
                 }
 
             } else { // 未设置宽高比
