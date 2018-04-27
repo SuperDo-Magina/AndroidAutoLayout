@@ -1,5 +1,6 @@
 package com.superdo.magina.autolayout.util;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -29,6 +30,7 @@ public class LayoutUtil {
     public static void adapterView4RL(View v, float w, float h) {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) v.getLayoutParams();
         if (params == null) {
+            Log.e("auto","adapterView4RL null");
             params = new RelativeLayout.LayoutParams(0, 0);
         }
 
@@ -57,6 +59,7 @@ public class LayoutUtil {
     public static void adapterView4RL(View v, float w, float h, float ml, float mt, float mr, float mb) {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) v.getLayoutParams();
         if (params == null) {
+            Log.e("auto","adapterView4RL null");
             params = new RelativeLayout.LayoutParams(0, 0);
         }
 
@@ -179,6 +182,15 @@ public class LayoutUtil {
     }
 
     /**
+     * 设置view的padding值
+     *
+     * @param v 要适配的视图
+     */
+    public static void setViewPadding(View v, float left, float top, float right, float bottom) {
+        v.setPadding(unit2Px(left), unit2Px(top), unit2Px(right), unit2Px(bottom));
+    }
+
+    /**
      * 获取n个单元大小
      */
     public static float getUnitSize(int n) {
@@ -192,7 +204,23 @@ public class LayoutUtil {
         return n * AutoLayout.getUnitSize();
     }
 
+    /**
+     * float转int（四舍五入）
+     *
+     * @param f float值
+     * @return int值
+     */
     public static int float2Int(float f) {
-        return float2Int(f + .5f);
+        return (int) (f + .5f);
+    }
+
+    /**
+     * unit值转px值
+     *
+     * @param unit unit值
+     * @return px值
+     */
+    public static int unit2Px(float unit) {
+        return float2Int(AutoLayout.getUnitSize() * unit);
     }
 }
