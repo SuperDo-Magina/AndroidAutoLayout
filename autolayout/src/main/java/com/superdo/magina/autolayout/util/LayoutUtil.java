@@ -34,11 +34,11 @@ public class LayoutUtil {
 
         float unit = AutoLayout.getUnitSize();
         if (w != 0) {
-            params.width = (int) (w * unit);
+            params.width = float2Int(w * unit);
         }
 
         if (h != 0) {
-            params.height = (int) (h * unit);
+            params.height = float2Int(h * unit);
         }
         v.setLayoutParams(params);
     }
@@ -62,13 +62,13 @@ public class LayoutUtil {
 
         float unit = AutoLayout.getUnitSize();
         if (w != 0) {
-            params.width = (int) (w * unit);
+            params.width = float2Int(w * unit);
         }
 
         if (h != 0) {
-            params.height = (int) (h * unit);
+            params.height = float2Int(h * unit);
         }
-        params.setMargins((int) (ml * unit), (int) (mt * unit), (int) (mr * unit), (int) (mb * unit));
+        params.setMargins(float2Int(ml * unit), float2Int(mt * unit), float2Int(mr * unit), float2Int(mb * unit));
         v.setLayoutParams(params);
     }
 
@@ -87,11 +87,11 @@ public class LayoutUtil {
 
         float unit = AutoLayout.getUnitSize();
         if (w != 0) {
-            params.width = (int) (w * unit);
+            params.width = float2Int(w * unit);
         }
 
         if (h != 0) {
-            params.height = (int) (h * unit);
+            params.height = float2Int(h * unit);
         }
         v.setLayoutParams(params);
     }
@@ -115,13 +115,13 @@ public class LayoutUtil {
 
         float unit = AutoLayout.getUnitSize();
         if (w != 0) {
-            params.width = (int) (w * unit);
+            params.width = float2Int(w * unit);
         }
 
         if (h != 0) {
-            params.height = (int) (h * unit);
+            params.height = float2Int(h * unit);
         }
-        params.setMargins((int) (ml * unit), (int) (mt * unit), (int) (mr * unit), (int) (mb * unit));
+        params.setMargins(float2Int(ml * unit), float2Int(mt * unit), float2Int(mr * unit), float2Int(mb * unit));
         v.setLayoutParams(params);
     }
 
@@ -140,11 +140,11 @@ public class LayoutUtil {
 
         float unit = AutoLayout.getUnitSize();
         if (w != 0) {
-            params.width = (int) (w * unit);
+            params.width = float2Int(w * unit);
         }
 
         if (h != 0) {
-            params.height = (int) (h * unit);
+            params.height = float2Int(h * unit);
         }
         v.setLayoutParams(params);
     }
@@ -168,13 +168,13 @@ public class LayoutUtil {
 
         float unit = AutoLayout.getUnitSize();
         if (w != 0) {
-            params.width = (int) (w * unit);
+            params.width = float2Int(w * unit);
         }
 
         if (h != 0) {
-            params.height = (int) (h * unit);
+            params.height = float2Int(h * unit);
         }
-        params.setMargins((int) (ml * unit), (int) (mt * unit), (int) (mr * unit), (int) (mb * unit));
+        params.setMargins(float2Int(ml * unit), float2Int(mt * unit), float2Int(mr * unit), float2Int(mb * unit));
         v.setLayoutParams(params);
     }
 
@@ -190,5 +190,9 @@ public class LayoutUtil {
      */
     public static float getUnitSize(float n) {
         return n * AutoLayout.getUnitSize();
+    }
+
+    public static int float2Int(float f) {
+        return float2Int(f + .5f);
     }
 }

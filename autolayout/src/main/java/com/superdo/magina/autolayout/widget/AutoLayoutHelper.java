@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.superdo.magina.autolayout.AutoLayout;
 import com.superdo.magina.autolayout.R;
+import com.superdo.magina.autolayout.util.LayoutUtil;
 
 /**
  * <pre>
@@ -44,10 +45,10 @@ class AutoLayoutHelper {
         if (pl > 0 || pt > 0 || pr > 0 || pb > 0 ||
                 ple > 0 || pte > 0 || pre > 0 || pbe > 0) {
 
-            v.setPadding(float2Int(pl * AutoLayout.getUnitSize() + ple * getWidthExtra()),
-                    float2Int(pt * AutoLayout.getUnitSize() + pte * getHeightExtra()),
-                    float2Int(pr * AutoLayout.getUnitSize() + pre * getWidthExtra()),
-                    float2Int(pb * AutoLayout.getUnitSize() + pbe * getHeightExtra()));
+            v.setPadding(LayoutUtil.float2Int(pl * AutoLayout.getUnitSize() + ple * getWidthExtra()),
+                    LayoutUtil.float2Int(pt * AutoLayout.getUnitSize() + pte * getHeightExtra()),
+                    LayoutUtil.float2Int(pr * AutoLayout.getUnitSize() + pre * getWidthExtra()),
+                    LayoutUtil.float2Int(pb * AutoLayout.getUnitSize() + pbe * getHeightExtra()));
         }
         a.recycle();
     }
@@ -81,7 +82,7 @@ class AutoLayoutHelper {
                 } else if (ratio > AutoLayout.getWidthHeightRatio()) {
                     height = getHeight();
 
-                    width = float2Int(getHeight() * ratio);
+                    width = LayoutUtil.float2Int(getHeight() * ratio);
 
                     if (gravity == GRAVITY_CENTER) {
 
@@ -92,7 +93,7 @@ class AutoLayoutHelper {
                 } else {
                     width = getWidth();
 
-                    height = float2Int(getWidth() / ratio);
+                    height = LayoutUtil.float2Int(getWidth() / ratio);
 
                     if (gravity == GRAVITY_CENTER) {
 
@@ -120,23 +121,23 @@ class AutoLayoutHelper {
 
                 if (ratioRefer == REFER_TO_WIDTH) { // 基于宽
 
-                    width = float2Int(w * AutoLayout.getUnitSize() + we * getWidthExtra());
-                    height = float2Int(width / ratio);
+                    width = LayoutUtil.float2Int(w * AutoLayout.getUnitSize() + we * getWidthExtra());
+                    height = LayoutUtil.float2Int(width / ratio);
 
                 } else { // 基于高
 
-                    height = float2Int(h * AutoLayout.getUnitSize() + he * getHeightExtra());
-                    width = float2Int(height * ratio);
+                    height = LayoutUtil.float2Int(h * AutoLayout.getUnitSize() + he * getHeightExtra());
+                    width = LayoutUtil.float2Int(height * ratio);
 
                 }
 
             } else { // 未设置宽高比
                 if (w > 0 || we > 0) {
-                    width = float2Int(w * AutoLayout.getUnitSize() + we * getWidthExtra());
+                    width = LayoutUtil.float2Int(w * AutoLayout.getUnitSize() + we * getWidthExtra());
                 }
 
                 if (h > 0 || he > 0) {
-                    height = float2Int(h * AutoLayout.getUnitSize() + he * getHeightExtra());
+                    height = LayoutUtil.float2Int(h * AutoLayout.getUnitSize() + he * getHeightExtra());
                 }
             }
 
@@ -160,10 +161,10 @@ class AutoLayoutHelper {
             if (ml > 0 || mt > 0 || mr > 0 || mb > 0 ||
                     mle > 0 || mte > 0 || mre > 0 || mbe > 0) {
 
-                int marginLeft = float2Int(ml * AutoLayout.getUnitSize() + mle * getWidthExtra());
-                int marginTop = float2Int(mt * AutoLayout.getUnitSize() + mte * getHeightExtra());
-                int marginRight = float2Int(mr * AutoLayout.getUnitSize() + mre * getWidthExtra());
-                int marginBottom = float2Int(mb * AutoLayout.getUnitSize() + mbe * getHeightExtra());
+                int marginLeft = LayoutUtil.float2Int(ml * AutoLayout.getUnitSize() + mle * getWidthExtra());
+                int marginTop = LayoutUtil.float2Int(mt * AutoLayout.getUnitSize() + mte * getHeightExtra());
+                int marginRight = LayoutUtil.float2Int(mr * AutoLayout.getUnitSize() + mre * getWidthExtra());
+                int marginBottom = LayoutUtil.float2Int(mb * AutoLayout.getUnitSize() + mbe * getHeightExtra());
 
                 setMargins(params, marginLeft, marginTop, marginRight, marginBottom);
             }
@@ -217,9 +218,5 @@ class AutoLayoutHelper {
 
         return AutoLayout.isPortrait() ?
                 AutoLayout.getWidthExtra() : AutoLayout.getHeightExtra();
-    }
-
-    private static int float2Int(float f) {
-        return (int) (f + .5f);
     }
 }
