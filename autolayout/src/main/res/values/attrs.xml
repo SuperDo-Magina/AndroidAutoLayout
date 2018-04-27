@@ -1,41 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--属性声明-->
+    <attr name="auto_width" format="integer"/>
+    <attr name="auto_height" format="integer"/>
+    <attr name="auto_width_extra" format="float"/>
+    <attr name="auto_height_extra" format="float"/>
+    <attr name="auto_margin_left" format="integer"/>
+    <attr name="auto_margin_top" format="integer"/>
+    <attr name="auto_margin_right" format="integer"/>
+    <attr name="auto_margin_bottom" format="integer"/>
+    <attr name="auto_margin_left_extra" format="float"/>
+    <attr name="auto_margin_top_extra" format="float"/>
+    <attr name="auto_margin_right_extra" format="float"/>
+    <attr name="auto_margin_bottom_extra" format="float"/>
+    <attr name="auto_width_height_ratio" format="float"/>
+    <attr name="auto_ratio_refer_to">
+        <enum name="refer_to_width" value="1"/>
+        <enum name="refer_to_height" value="2"/>
+    </attr>
+    <attr name="auto_full_screen" format="boolean"/>
+    <attr name="auto_gravity">
+        <enum name="gravity_default" value="1"/>
+        <enum name="gravity_center" value="2"/>
+    </attr>
+    <attr name="auto_padding_left" format="integer"/>
+    <attr name="auto_padding_top" format="integer"/>
+    <attr name="auto_padding_right" format="integer"/>
+    <attr name="auto_padding_bottom" format="integer"/>
+    <attr name="auto_padding_left_extra" format="float"/>
+    <attr name="auto_padding_top_extra" format="float"/>
+    <attr name="auto_padding_right_extra" format="float"/>
+    <attr name="auto_padding_bottom_extra" format="float"/>
+
     <declare-styleable name="AutoView">
         <!--子布局属性-->
-        <attr name="auto_width" format="integer"/>
-        <attr name="auto_height" format="integer"/>
-        <attr name="auto_width_extra" format="float"/>
-        <attr name="auto_height_extra" format="float"/>
-        <attr name="auto_margin_left" format="integer"/>
-        <attr name="auto_margin_top" format="integer"/>
-        <attr name="auto_margin_right" format="integer"/>
-        <attr name="auto_margin_bottom" format="integer"/>
-        <attr name="auto_margin_left_extra" format="float"/>
-        <attr name="auto_margin_top_extra" format="float"/>
-        <attr name="auto_margin_right_extra" format="float"/>
-        <attr name="auto_margin_bottom_extra" format="float"/>
-
-        <attr name="auto_width_height_ratio" format="float"/>
-        <attr name="auto_ratio_refer_to">
-            <enum name="refer_to_width" value="1"/>
-            <enum name="refer_to_height" value="2"/>
-        </attr>
-
-        <attr name="auto_full_screen" format="boolean"/>
-        <attr name="auto_gravity" >
-            <enum name="gravity_default" value="1"/>
-            <enum name="gravity_center" value="2"/>
-        </attr>
-
+        <attr name="auto_width"/>
+        <attr name="auto_height"/>
+        <attr name="auto_width_extra"/>
+        <attr name="auto_height_extra"/>
+        <attr name="auto_margin_left"/>
+        <attr name="auto_margin_top"/>
+        <attr name="auto_margin_right"/>
+        <attr name="auto_margin_bottom"/>
+        <attr name="auto_margin_left_extra"/>
+        <attr name="auto_margin_top_extra"/>
+        <attr name="auto_margin_right_extra"/>
+        <attr name="auto_margin_bottom_extra"/>
+        <attr name="auto_width_height_ratio"/>
+        <attr name="auto_ratio_refer_to"/>
+        <attr name="auto_full_screen"/>
+        <attr name="auto_gravity"/>
         <!--父布局属性-->
-        <attr name="auto_padding_left" format="integer"/>
-        <attr name="auto_padding_top" format="integer"/>
-        <attr name="auto_padding_right" format="integer"/>
-        <attr name="auto_padding_bottom" format="integer"/>
-        <attr name="auto_padding_left_extra" format="float"/>
-        <attr name="auto_padding_top_extra" format="float"/>
-        <attr name="auto_padding_right_extra" format="float"/>
-        <attr name="auto_padding_bottom_extra" format="float"/>
+        <attr name="auto_padding_left"/>
+        <attr name="auto_padding_top"/>
+        <attr name="auto_padding_right"/>
+        <attr name="auto_padding_bottom"/>
+        <attr name="auto_padding_left_extra"/>
+        <attr name="auto_padding_top_extra"/>
+        <attr name="auto_padding_right_extra"/>
+        <attr name="auto_padding_bottom_extra"/>
+    </declare-styleable>
+
+    <declare-styleable name="AutoRelativeLayout_Layout">
+        <!--子布局属性-->
+        <attr name="auto_width"/>
+        <attr name="auto_height"/>
+        <attr name="auto_width_extra"/>
+        <attr name="auto_height_extra"/>
+        <attr name="auto_margin_left"/>
+        <attr name="auto_margin_top"/>
+        <attr name="auto_margin_right"/>
+        <attr name="auto_margin_bottom"/>
+        <attr name="auto_margin_left_extra"/>
+        <attr name="auto_margin_top_extra"/>
+        <attr name="auto_margin_right_extra"/>
+        <attr name="auto_margin_bottom_extra"/>
+        <attr name="auto_width_height_ratio"/>
+        <attr name="auto_ratio_refer_to"/>
+        <attr name="auto_full_screen"/>
+        <attr name="auto_gravity"/>
+        <!--父布局属性-->
+        <attr name="auto_padding_left"/>
+        <attr name="auto_padding_top"/>
+        <attr name="auto_padding_right"/>
+        <attr name="auto_padding_bottom"/>
+        <attr name="auto_padding_left_extra"/>
+        <attr name="auto_padding_top_extra"/>
+        <attr name="auto_padding_right_extra"/>
+        <attr name="auto_padding_bottom_extra"/>
+    </declare-styleable>
+
+    <declare-styleable name="AutoLinearLayout_Layout">
+        <!--子布局属性-->
+        <attr name="auto_width"/>
+        <attr name="auto_height"/>
+        <attr name="auto_width_extra"/>
+        <attr name="auto_height_extra"/>
+        <attr name="auto_margin_left"/>
+        <attr name="auto_margin_top"/>
+        <attr name="auto_margin_right"/>
+        <attr name="auto_margin_bottom"/>
+        <attr name="auto_margin_left_extra"/>
+        <attr name="auto_margin_top_extra"/>
+        <attr name="auto_margin_right_extra"/>
+        <attr name="auto_margin_bottom_extra"/>
+        <attr name="auto_width_height_ratio"/>
+        <attr name="auto_ratio_refer_to"/>
+        <attr name="auto_full_screen"/>
+        <attr name="auto_gravity"/>
+        <!--父布局属性-->
+        <attr name="auto_padding_left"/>
+        <attr name="auto_padding_top"/>
+        <attr name="auto_padding_right"/>
+        <attr name="auto_padding_bottom"/>
+        <attr name="auto_padding_left_extra"/>
+        <attr name="auto_padding_top_extra"/>
+        <attr name="auto_padding_right_extra"/>
+        <attr name="auto_padding_bottom_extra"/>
+    </declare-styleable>
+
+    <declare-styleable name="AutoFrameLayout_Layout">
+        <!--子布局属性-->
+        <attr name="auto_width"/>
+        <attr name="auto_height"/>
+        <attr name="auto_width_extra"/>
+        <attr name="auto_height_extra"/>
+        <attr name="auto_margin_left"/>
+        <attr name="auto_margin_top"/>
+        <attr name="auto_margin_right"/>
+        <attr name="auto_margin_bottom"/>
+        <attr name="auto_margin_left_extra"/>
+        <attr name="auto_margin_top_extra"/>
+        <attr name="auto_margin_right_extra"/>
+        <attr name="auto_margin_bottom_extra"/>
+        <attr name="auto_width_height_ratio"/>
+        <attr name="auto_ratio_refer_to"/>
+        <attr name="auto_full_screen"/>
+        <attr name="auto_gravity"/>
+        <!--父布局属性-->
+        <attr name="auto_padding_left"/>
+        <attr name="auto_padding_top"/>
+        <attr name="auto_padding_right"/>
+        <attr name="auto_padding_bottom"/>
+        <attr name="auto_padding_left_extra"/>
+        <attr name="auto_padding_top_extra"/>
+        <attr name="auto_padding_right_extra"/>
+        <attr name="auto_padding_bottom_extra"/>
     </declare-styleable>
 
     <declare-styleable name="AutoTextView">
