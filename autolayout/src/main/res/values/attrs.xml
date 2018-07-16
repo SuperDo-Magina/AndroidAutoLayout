@@ -151,5 +151,6 @@
 
     <declare-styleable name="AutoTextView">
         <attr name="auto_text_size" format="integer"/>
+        <attr name="auto_line_spacing_extra" format="integer"/>
     </declare-styleable>
 </resources>

@@ -7,6 +7,8 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import com.superdo.magina.autolayout.util.NotichUtil;
+
 /**
  * <pre>
  *
@@ -75,6 +77,9 @@ public class AutoLayout {
             height = width;
             width = temp;
         }
+
+        // fix:1 华为手机有刘海的情况下宽高只能获取刘海以外大小
+        height = height + NotichUtil.getHwNotchSize(mContext)[1];
     }
 
     private static void countUnits() {
@@ -200,4 +205,5 @@ public class AutoLayout {
     public enum ScreenOrientation {
         PORTRAIT, LANDSCAPE
     }
+
 }

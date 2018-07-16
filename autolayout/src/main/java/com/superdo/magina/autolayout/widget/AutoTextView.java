@@ -48,6 +48,18 @@ public class AutoTextView extends TextView {
             setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * AutoLayout.getUnitSize());
         }
 
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            float spacingExtra = a.getFloat(R.styleable.AutoTextView_auto_line_spacing_extra, -1);
+
+            if (spacingExtra > 0) {
+                setLineSpacing(spacingExtra * AutoLayout.getUnitSize(), getLineSpacingMultiplier());
+            }
+        }
+
         a.recycle();
+    }
+
+    public void setAutoLineSpacing(float add, float mult) {
+        setLineSpacing(add * AutoLayout.getUnitSize(), mult);
     }
 }
