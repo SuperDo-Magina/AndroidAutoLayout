@@ -158,8 +158,8 @@ class AutoLayoutHelper {
             float mre = a.getFloat(R.styleable.AutoView_auto_margin_right_extra, 0);
             float mbe = a.getFloat(R.styleable.AutoView_auto_margin_bottom_extra, 0);
 
-            if (ml > 0 || mt > 0 || mr > 0 || mb > 0 ||
-                    mle > 0 || mte > 0 || mre > 0 || mbe > 0) {
+            if (ml != 0 || mt != 0 || mr != 0 || mb != 0 ||
+                    mle != 0 || mte != 0 || mre != 0 || mbe != 0) {
 
                 int marginLeft = LayoutUtil.float2Int(ml * AutoLayout.getUnitSize() + mle * getWidthExtra());
                 int marginTop = LayoutUtil.float2Int(mt * AutoLayout.getUnitSize() + mte * getHeightExtra());

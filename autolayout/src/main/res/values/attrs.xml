@@ -152,5 +152,13 @@
     <declare-styleable name="AutoTextView">
         <attr name="auto_text_size" format="integer"/>
         <attr name="auto_line_spacing_extra" format="integer"/>
+        <attr name="auto_padding_left"/>
+        <attr name="auto_padding_top"/>
+        <attr name="auto_padding_right"/>
+        <attr name="auto_padding_bottom"/>
+        <attr name="auto_padding_left_extra"/>
+        <attr name="auto_padding_top_extra"/>
+        <attr name="auto_padding_right_extra"/>
+        <attr name="auto_padding_bottom_extra"/>
     </declare-styleable>
 </resources>

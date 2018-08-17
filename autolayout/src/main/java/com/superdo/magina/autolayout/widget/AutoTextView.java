@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.superdo.magina.autolayout.AutoLayout;
 import com.superdo.magina.autolayout.R;
+import com.superdo.magina.autolayout.util.LayoutUtil;
 
 /**
  * <pre>
@@ -56,10 +57,40 @@ public class AutoTextView extends TextView {
             }
         }
 
+        int pl = a.getInt(R.styleable.AutoTextView_auto_padding_left, 0);
+        int pt = a.getInt(R.styleable.AutoTextView_auto_padding_top, 0);
+        int pr = a.getInt(R.styleable.AutoTextView_auto_padding_right, 0);
+        int pb = a.getInt(R.styleable.AutoTextView_auto_padding_bottom, 0);
+        float ple = a.getFloat(R.styleable.AutoTextView_auto_padding_left_extra, 0);
+        float pte = a.getFloat(R.styleable.AutoTextView_auto_padding_top_extra, 0);
+        float pre = a.getFloat(R.styleable.AutoTextView_auto_padding_right_extra, 0);
+        float pbe = a.getFloat(R.styleable.AutoTextView_auto_padding_bottom_extra, 0);
+
+        if (pl > 0 || pt > 0 || pr > 0 || pb > 0 ||
+                ple > 0 || pte > 0 || pre > 0 || pbe > 0) {
+
+            setPadding(LayoutUtil.float2Int(pl * AutoLayout.getUnitSize() + ple * getWidthExtra()),
+                    LayoutUtil.float2Int(pt * AutoLayout.getUnitSize() + pte * getHeightExtra()),
+                    LayoutUtil.float2Int(pr * AutoLayout.getUnitSize() + pre * getWidthExtra()),
+                    LayoutUtil.float2Int(pb * AutoLayout.getUnitSize() + pbe * getHeightExtra()));
+        }
+
         a.recycle();
     }
 
     public void setAutoLineSpacing(float add, float mult) {
         setLineSpacing(add * AutoLayout.getUnitSize(), mult);
+    }
+
+    private static int getHeightExtra() {
+
+        return AutoLayout.isPortrait() ?
+                AutoLayout.getHeightExtra() : AutoLayout.getWidthExtra();
+    }
+
+    private static int getWidthExtra() {
+
+        return AutoLayout.isPortrait() ?
+                AutoLayout.getWidthExtra() : AutoLayout.getHeightExtra();
     }
 }
