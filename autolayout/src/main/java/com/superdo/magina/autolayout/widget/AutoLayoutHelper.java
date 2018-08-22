@@ -201,22 +201,22 @@ class AutoLayoutHelper {
     }
 
     private static int getWidth() {
-        return AutoLayout.isPortrait() ? AutoLayout.getWidth() : AutoLayout.getHeight();
+        return AutoLayout.isPortrait() ? AutoLayout.getPhoneWidth() : AutoLayout.getPhoneHeight();
     }
 
     private static int getHeight() {
-        return AutoLayout.isPortrait() ? AutoLayout.getHeight() : AutoLayout.getWidth();
+        return AutoLayout.isPortrait() ? AutoLayout.getPhoneHeight() : AutoLayout.getPhoneWidth();
     }
 
     private static int getHeightExtra() {
 
-        return AutoLayout.isPortrait() ?
-                AutoLayout.getHeightExtra() : AutoLayout.getWidthExtra();
+//        return AutoLayout.isPortrait() ?
+//                AutoLayout.getHeightExtra() : AutoLayout.getWidthExtra();
+        return AutoLayout.getHeightExtra();
     }
 
     private static int getWidthExtra() {
 
-        return AutoLayout.isPortrait() ?
-                AutoLayout.getWidthExtra() : AutoLayout.getHeightExtra();
+        return AutoLayout.getWidthExtra();
     }
 }
