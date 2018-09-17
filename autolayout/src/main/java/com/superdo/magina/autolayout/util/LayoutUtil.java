@@ -184,7 +184,7 @@ public class LayoutUtil {
         v.setLayoutParams(params);
     }
 
-    public void adapterTextSize(TextView tv, int size) {
+    public static void adapterTextSize(TextView tv, int size) {
         tv.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 LayoutUtil.float2Int(size * AutoLayout.getUnitSize()));
     }
@@ -198,7 +198,7 @@ public class LayoutUtil {
         v.setPadding(unit2Px(left), unit2Px(top), unit2Px(right), unit2Px(bottom));
     }
 
-    public void addRule4RL(View v, int verb) {
+    public static void addRule4RL(View v, int verb) {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) v.getLayoutParams();
         if (params == null) {
             params = new RelativeLayout.LayoutParams(
