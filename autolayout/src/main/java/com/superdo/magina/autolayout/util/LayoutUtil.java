@@ -3,6 +3,7 @@ package com.superdo.magina.autolayout.util;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -195,6 +196,18 @@ public class LayoutUtil {
      */
     public static void setViewPadding(View v, float left, float top, float right, float bottom) {
         v.setPadding(unit2Px(left), unit2Px(top), unit2Px(right), unit2Px(bottom));
+    }
+
+    public void addRule4RL(View v, int verb) {
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) v.getLayoutParams();
+        if (params == null) {
+            params = new RelativeLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
+
+        params.addRule(verb, RelativeLayout.TRUE);
+        v.setLayoutParams(params);
     }
 
     /**
