@@ -46,14 +46,17 @@ public class AutoTextView extends TextView {
 
         int textSize = a.getInt(R.styleable.AutoTextView_auto_text_size, -1);
         if (textSize >= 0) {
-            setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * AutoLayout.getUnitSize());
+            setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    LayoutUtil.float2Int(textSize * AutoLayout.getUnitSize()));
         }
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
             float spacingExtra = a.getFloat(R.styleable.AutoTextView_auto_line_spacing_extra, -1);
 
             if (spacingExtra > 0) {
-                setLineSpacing(spacingExtra * AutoLayout.getUnitSize(), getLineSpacingMultiplier());
+                setLineSpacing(
+                        LayoutUtil.float2Int(spacingExtra * AutoLayout.getUnitSize()),
+                        getLineSpacingMultiplier());
             }
         }
 
@@ -92,5 +95,10 @@ public class AutoTextView extends TextView {
 
         return AutoLayout.isPortrait() ?
                 AutoLayout.getWidthExtra() : AutoLayout.getHeightExtra();
+    }
+
+    public void setUnitTextSize(float size) {
+        setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                LayoutUtil.float2Int(size * AutoLayout.getUnitSize()));
     }
 }

@@ -1,10 +1,12 @@
 package com.superdo.magina.autolayout.util;
 
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.superdo.magina.autolayout.AutoLayout;
 
@@ -30,7 +32,7 @@ public class LayoutUtil {
     public static void adapterView4RL(View v, float w, float h) {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) v.getLayoutParams();
         if (params == null) {
-            Log.e("auto","adapterView4RL null");
+            Log.e("auto", "adapterView4RL null");
             params = new RelativeLayout.LayoutParams(0, 0);
         }
 
@@ -59,7 +61,7 @@ public class LayoutUtil {
     public static void adapterView4RL(View v, float w, float h, float ml, float mt, float mr, float mb) {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) v.getLayoutParams();
         if (params == null) {
-            Log.e("auto","adapterView4RL null");
+            Log.e("auto", "adapterView4RL null");
             params = new RelativeLayout.LayoutParams(0, 0);
         }
 
@@ -179,6 +181,11 @@ public class LayoutUtil {
         }
         params.setMargins(float2Int(ml * unit), float2Int(mt * unit), float2Int(mr * unit), float2Int(mb * unit));
         v.setLayoutParams(params);
+    }
+
+    public void adapterTextSize(TextView tv, int size) {
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                LayoutUtil.float2Int(size * AutoLayout.getUnitSize()));
     }
 
     /**
