@@ -26,6 +26,8 @@ import com.superdo.magina.autolayout.util.NotichUtil;
 
 public class AutoLayout {
 
+    private final static String TAG = "AutoLayout";
+
     private AutoLayout() {
     }
 
@@ -107,7 +109,7 @@ public class AutoLayout {
      * @param h 高
      * @param w 宽
      */
-    public static void setUISizeAndScreenOrientation(int h, int w, ScreenOrientation screenOrientation) {
+    public synchronized static void setUISizeAndScreenOrientation(int h, int w, ScreenOrientation screenOrientation) {
 
         if (baseHeight != h || baseWidth != w || AutoLayout.screenOrientation != screenOrientation) {
             baseWidth = h;
@@ -135,7 +137,7 @@ public class AutoLayout {
     /**
      * 设置屏幕方向
      */
-    public static void setScreenOrientation(ScreenOrientation screenOrientation) {
+    public synchronized static void setScreenOrientation(ScreenOrientation screenOrientation) {
         if (AutoLayout.screenOrientation != screenOrientation) {
             AutoLayout.screenOrientation = screenOrientation;
             countUnits();
@@ -167,7 +169,14 @@ public class AutoLayout {
 
         unitHeightExtra = unitHeight - baseHeight;
         unitWidthExtra = unitWidth - baseWidth;
-        Log.e("Test",unitHeight+"=="+unitWidth);
+
+        Log.v(TAG, "phoneHeight:" + phoneHeight + "\n" +
+                "phoneWidth:" + phoneWidth + "\n" +
+                "unitSize:" + unitSize + "\n" +
+                "baseHeight:" + baseHeight + "\n" +
+                "baseWidth:" + baseWidth + "\n" +
+                "unitHeight:" + unitHeight + "\n" +
+                "unitWidth:" + unitWidth + "\n");
     }
 
     /**
