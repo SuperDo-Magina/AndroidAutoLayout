@@ -112,7 +112,7 @@ public class AutoLayout {
     public synchronized static void setUISizeAndScreenOrientation(int h, int w, ScreenOrientation screenOrientation) {
 
         if (baseHeight != h || baseWidth != w || AutoLayout.screenOrientation != screenOrientation) {
-            baseWidth = h;
+            baseHeight = h;
             baseWidth = w;
             AutoLayout.screenOrientation = screenOrientation;
             countUnits();
