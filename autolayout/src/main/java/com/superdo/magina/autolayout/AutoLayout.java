@@ -173,13 +173,15 @@ public class AutoLayout {
         Log.v(TAG, "===================================");
         Log.v(TAG,
                 "screenOrientation:" + screenOrientation + "\n" +
-                "phoneHeight:" + phoneHeight + "\n" +
-                "phoneWidth:" + phoneWidth + "\n" +
-                "unitSize:" + unitSize + "\n" +
-                "baseHeight:" + baseHeight + "\n" +
-                "baseWidth:" + baseWidth + "\n" +
-                "unitHeight:" + unitHeight + "\n" +
-                "unitWidth:" + unitWidth + "\n");
+                        "h:" + h + "\n" +
+                        "w:" + w + "\n" +
+                        "phoneHeight:" + phoneHeight + "\n" +
+                        "phoneWidth:" + phoneWidth + "\n" +
+                        "unitSize:" + unitSize + "\n" +
+                        "baseHeight:" + baseHeight + "\n" +
+                        "baseWidth:" + baseWidth + "\n" +
+                        "unitHeight:" + unitHeight + "\n" +
+                        "unitWidth:" + unitWidth + "\n");
     }
 
     /**
