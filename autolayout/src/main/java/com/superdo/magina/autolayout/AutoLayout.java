@@ -170,7 +170,10 @@ public class AutoLayout {
         unitHeightExtra = unitHeight - baseHeight;
         unitWidthExtra = unitWidth - baseWidth;
 
-        Log.v(TAG, "phoneHeight:" + phoneHeight + "\n" +
+        Log.v(TAG, "===================================");
+        Log.v(TAG,
+                "screenOrientation:" + screenOrientation + "\n" +
+                "phoneHeight:" + phoneHeight + "\n" +
                 "phoneWidth:" + phoneWidth + "\n" +
                 "unitSize:" + unitSize + "\n" +
                 "baseHeight:" + baseHeight + "\n" +
