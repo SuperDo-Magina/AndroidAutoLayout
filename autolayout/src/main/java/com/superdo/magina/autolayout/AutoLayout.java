@@ -97,7 +97,7 @@ public class AutoLayout {
     public static void setUISize(int h, int w) {
 
         if (baseHeight != h || baseWidth != w) {
-            baseWidth = h;
+            baseHeight = h;
             baseWidth = w;
             countUnits();
         }
