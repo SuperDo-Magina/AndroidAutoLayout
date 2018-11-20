@@ -48,6 +48,8 @@ public class AutoLayout {
      * @param height  高
      */
     public static void init(Context context, int width, int height) {
+        Log.e(TAG,"init:"+height+"="+width);
+        Log.e(TAG,Thread.currentThread().getStackTrace()[3]+"");
         baseHeight = height;
         baseWidth = width;
 
@@ -95,7 +97,8 @@ public class AutoLayout {
      * @param w 宽
      */
     public static void setUISize(int h, int w) {
-
+        Log.e(TAG,"setUISize:"+h+"="+w);
+        Log.e(TAG,Thread.currentThread().getStackTrace()[3]+"");
         if (baseHeight != h || baseWidth != w) {
             baseHeight = h;
             baseWidth = w;
@@ -127,6 +130,8 @@ public class AutoLayout {
      */
     public static void setPhoneSize(int h, int w) {
 
+        Log.e(TAG,"setPhoneSize:"+h+"="+w);
+        Log.e(TAG,Thread.currentThread().getStackTrace()[3]+"");
         if (phoneHeight != h || phoneWidth != w) {
             phoneHeight = h;
             phoneWidth = w;
